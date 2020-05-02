@@ -90,7 +90,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
             $this->xmlSerialize($data)
         );
 
-        return $this->response = $this->newResponse( $httpResponse->xml() );
+        return $this->response = $this->newResponse( simplexml_load_string($httpResponse->getBody()->getContents()) );
     }
 
     /**
