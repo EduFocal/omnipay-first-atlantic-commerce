@@ -83,7 +83,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-        $httpResponse = $this->httpClient->post(
+        $httpResponse = $this->httpClient->request(
+            'POST',
             $this->getEndpoint(),
             ['Content-Type' => 'text/xml; charset=utf-8'],
             $this->xmlSerialize($data)
