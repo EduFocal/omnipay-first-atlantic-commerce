@@ -27,6 +27,7 @@ class Gateway extends AbstractGateway
         return [
             'merchantId'       => null,
             'merchantPassword' => null,
+            'merchantUrl'      => null,
             'acquirerId'       => '464748',
             'testMode'         => false,
             'requireAvsCheck'  => true

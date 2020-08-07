@@ -43,7 +43,7 @@ trait ParameterTrait
     /**
      * @return string $value Merchant Url Response.
      */
-    public function setMerchantResponseUrl($value)
+    public function setMerchantUrl($value)
     {
         return $this->setParameter('merchantUrl', $value);
     }
@@ -51,7 +51,7 @@ trait ParameterTrait
     /**
      * @return string $value Merchant Url Response.
      */
-    public function getMerchantResponseUrl()
+    public function getMerchantUrl()
     {
         return $this->getParameter('merchantUrl');
     }

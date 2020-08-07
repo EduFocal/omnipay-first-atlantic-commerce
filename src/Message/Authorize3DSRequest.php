@@ -57,7 +57,7 @@ class Authorize3DSRequest extends AbstractRequest
      */
     public function getData()
     {
-        $this->validate('merchantId', 'merchantPassword', 'acquirerId', 'transactionId', 'amount', 'currency', 'card');
+        $this->validate('merchantId', 'merchantPassword', 'merchantUrl', 'acquirerId', 'transactionId', 'amount', 'currency', 'card');
 
         // Check for AVS and require billingAddress1 and billingPostcode
         if ( $this->getRequireAvsCheck() )
@@ -133,7 +133,7 @@ class Authorize3DSRequest extends AbstractRequest
         ];
 
         return [
-            'MerchantResponseURL' => $this->getMerchantResponseUrl(),
+            'MerchantResponseURL' => $this->getMerchantUrl(),
             'TransactionDetails' => $transactionDetails,
             'CardDetails'        => $cardDetails,
             'BillingDetails'     => $billingDetails,
