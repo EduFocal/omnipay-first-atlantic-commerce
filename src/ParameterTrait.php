@@ -41,6 +41,22 @@ trait ParameterTrait
     }
 
     /**
+     * @return string $value Merchant Url Response.
+     */
+    public function setMerchantResponseUrl($value)
+    {
+        return $this->setParameter('merchantUrl', $value);
+    }
+
+    /**
+     * @return string $value Merchant Url Response.
+     */
+    public function getMerchantResponseUrl()
+    {
+        return $this->getParameter('merchantUrl');
+    }
+
+    /**
      * @param string $value Acquirer ID.
      *
      * @return string $value Acquirer ID.
