@@ -70,6 +70,18 @@ class Gateway extends AbstractGateway
     }
 
     /**
+     * Authorize and immediately capture an amount on the customer’s card.
+     *
+     * @param array $parmeters
+     *
+     * @return \Omnipay\FirstAtlanticCommerce\Message\Purchase3DSRequest
+     */
+    public function purchase3DS(array $parameters = [])
+    {
+        return $this->createRequest('\Omnipay\FirstAtlanticCommerce\Message\Purchase3DSRequest', $parameters);
+    }
+
+    /**
      *  Refund an already processed transaction.
      *
      * @param array $parameters
