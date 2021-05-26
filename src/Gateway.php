@@ -6,6 +6,11 @@ use Omnipay\Common\AbstractGateway;
 
 /**
  * First Atlantic Commerce Payment Gateway 2 (XML POST Service)
+ * @method \Omnipay\Common\Message\NotificationInterface acceptNotification(array $options = array())
+ * @method \Omnipay\Common\Message\RequestInterface completeAuthorize(array $options = array())
+ * @method \Omnipay\Common\Message\RequestInterface completePurchase(array $options = array())
+ * @method \Omnipay\Common\Message\RequestInterface fetchTransaction(array $options = [])
+ * @method \Omnipay\Common\Message\RequestInterface deleteCard(array $options = array())
  */
 class Gateway extends AbstractGateway
 {
@@ -83,6 +88,30 @@ class Gateway extends AbstractGateway
     }
 
     /**
+     * Authorize and immediately capture an amount on the customer’s card.
+     *
+     * @param array $parmeters
+     *
+     * @return \Omnipay\FirstAtlanticCommerce\Message\Authorize3DSRequest
+     */
+    public function authorize3DS(array $parameters = [])
+    {
+        return $this->createRequest('\Omnipay\FirstAtlanticCommerce\Message\Authorize3DSRequest', $parameters);
+    }
+
+    /**
+     * Authenticate and immediately capture an amount on the customer’s card.
+     *
+     * @param array $parmeters
+     *
+     * @return \Omnipay\FirstAtlanticCommerce\Message\Authenticate3DSRequest
+     */
+    public function authenticate3DS(array $parameters = [])
+    {
+        return $this->createRequest('\Omnipay\FirstAtlanticCommerce\Message\Authenticate3DSRequest', $parameters);
+    }
+
+    /**
      *  Refund an already processed transaction.
      *
      * @param array $parameters
@@ -140,5 +169,14 @@ class Gateway extends AbstractGateway
     public function updateCard(array $parameters = [])
     {
         return $this->createRequest('\Omnipay\FirstAtlanticCommerce\Message\UpdateCardRequest', $parameters);
+    }
+
+    public function __call($name, $arguments)
+    {
+        // TODO: Implement @method \Omnipay\Common\Message\NotificationInterface acceptNotification(array $options = array())
+        // TODO: Implement @method \Omnipay\Common\Message\RequestInterface completeAuthorize(array $options = array())
+        // TODO: Implement @method \Omnipay\Common\Message\RequestInterface completePurchase(array $options = array())
+        // TODO: Implement @method \Omnipay\Common\Message\RequestInterface fetchTransaction(array $options = [])
+        // TODO: Implement @method \Omnipay\Common\Message\RequestInterface deleteCard(array $options = array())
     }
 }

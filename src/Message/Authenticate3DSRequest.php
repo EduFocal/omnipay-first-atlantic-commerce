@@ -16,7 +16,7 @@ use Omnipay\Common\Exception\InvalidRequestException;
  * requireAVSCheck - will tell FAC that we want the to verify the address through AVS
  * createCard - will tell FAC to create a tokenized card in their system while it is authorizing the transaction
  */
-class Authorize3DSRequest extends AbstractRequest
+class Authenticate3DSRequest extends AbstractRequest
 {
     /**
      * @var string;
@@ -24,11 +24,11 @@ class Authorize3DSRequest extends AbstractRequest
     protected $requestName = 'Authorize3DSRequest';
 
     /**
-     * Transaction code (flag as a authorization)
+     * Transaction code (flag as a authentication)
      *
      * @var int;
      */
-    protected $transactionCode = 0;
+    protected $transactionCode = 64;
 
     /**
      * Returns the signature for the request.
